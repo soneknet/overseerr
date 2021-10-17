@@ -181,7 +181,7 @@ const UserGeneralSettings: React.FC = () => {
                   {intl.formatMessage(messages.accounttype)}
                 </label>
                 <div className="mb-1 text-sm font-medium leading-5 text-gray-400 sm:mt-2">
-                  <div className="flex max-w-lg items-center">
+                  <div className="flex items-center max-w-lg">
                     {user?.userType === UserType.PLEX ? (
                       <Badge badgeType="warning">
                         {intl.formatMessage(messages.plexuser)}
@@ -199,7 +199,7 @@ const UserGeneralSettings: React.FC = () => {
                   {intl.formatMessage(messages.role)}
                 </label>
                 <div className="mb-1 text-sm font-medium leading-5 text-gray-400 sm:mt-2">
-                  <div className="flex max-w-lg items-center">
+                  <div className="flex items-center max-w-lg">
                     {user?.id === 1
                       ? intl.formatMessage(messages.owner)
                       : hasPermission(Permission.ADMIN)
@@ -335,13 +335,13 @@ const UserGeneralSettings: React.FC = () => {
                       </label>
                       <div className="form-input-area">
                         <div className="flex flex-col">
-                          <div className="mb-4 flex items-center">
+                          <div className="mb-1.5 flex items-center">
                             <input
                               type="checkbox"
                               checked={movieQuotaEnabled}
                               onChange={() => setMovieQuotaEnabled((s) => !s)}
                             />
-                            <span className="ml-2 text-gray-300">
+                            <span className="ml-2 font-semibold text-gray-300">
                               {intl.formatMessage(messages.enableOverride)}
                             </span>
                           </div>
@@ -375,13 +375,13 @@ const UserGeneralSettings: React.FC = () => {
                       </label>
                       <div className="form-input-area">
                         <div className="flex flex-col">
-                          <div className="mb-4 flex items-center">
+                          <div className="mb-1.5 flex items-center">
                             <input
                               type="checkbox"
                               checked={tvQuotaEnabled}
                               onChange={() => setTvQuotaEnabled((s) => !s)}
                             />
-                            <span className="ml-2 text-gray-300">
+                            <span className="ml-2 font-semibold text-gray-300">
                               {intl.formatMessage(messages.enableOverride)}
                             </span>
                           </div>
@@ -411,7 +411,7 @@ const UserGeneralSettings: React.FC = () => {
                 )}
               <div className="actions">
                 <div className="flex justify-end">
-                  <span className="ml-3 inline-flex rounded-md shadow-sm">
+                  <span className="inline-flex ml-3 rounded-md shadow-sm">
                     <Button
                       buttonType="primary"
                       type="submit"
