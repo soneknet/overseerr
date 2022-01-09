@@ -26,6 +26,7 @@ export interface UserSettingsNotificationsResponse {
   pushbulletAccessToken?: string;
   pushoverApplicationToken?: string;
   pushoverUserKey?: string;
+  pushoverSound?: string;
   telegramEnabled?: boolean;
   telegramBotUsername?: string;
   telegramChatId?: string;
