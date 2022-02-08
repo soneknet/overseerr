@@ -181,7 +181,7 @@ const UserGeneralSettings: React.FC = () => {
                   {intl.formatMessage(messages.accounttype)}
                 </label>
                 <div className="mb-1 text-sm font-medium leading-5 text-gray-400 sm:mt-2">
-                  <div className="flex items-center max-w-lg">
+                  <div className="flex max-w-lg items-center">
                     {user?.userType === UserType.PLEX ? (
                       <Badge badgeType="warning">
                         {intl.formatMessage(messages.plexuser)}
@@ -199,7 +199,7 @@ const UserGeneralSettings: React.FC = () => {
                   {intl.formatMessage(messages.role)}
                 </label>
                 <div className="mb-1 text-sm font-medium leading-5 text-gray-400 sm:mt-2">
-                  <div className="flex items-center max-w-lg">
+                  <div className="flex max-w-lg items-center">
                     {user?.id === 1
                       ? intl.formatMessage(messages.owner)
                       : hasPermission(Permission.ADMIN)
@@ -411,7 +411,7 @@ const UserGeneralSettings: React.FC = () => {
                 )}
               <div className="actions">
                 <div className="flex justify-end">
-                  <span className="inline-flex ml-3 rounded-md shadow-sm">
+                  <span className="ml-3 inline-flex rounded-md shadow-sm">
                     <Button
                       buttonType="primary"
                       type="submit"
