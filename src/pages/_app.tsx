@@ -160,6 +160,7 @@ CoreApp.getInitialProps = async (initialProps) => {
     applicationTitle: '',
     applicationUrl: '',
     hideAvailable: false,
+    hideRequested: false,
     movie4kEnabled: false,
     series4kEnabled: false,
     localLogin: true,
