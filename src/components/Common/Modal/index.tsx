@@ -7,6 +7,7 @@ import globalMessages from '../../../i18n/globalMessages';
 import Transition from '../../Transition';
 import Button, { ButtonType } from '../Button';
 import CachedImage from '../CachedImage';
+import ConfirmButton from '../ConfirmButton/';
 import LoadingSpinner from '../LoadingSpinner';
 
 interface ModalProps {
@@ -15,6 +16,7 @@ interface ModalProps {
   onOk?: (e?: MouseEvent<HTMLButtonElement>) => void;
   onSecondary?: (e?: MouseEvent<HTMLButtonElement>) => void;
   onTertiary?: (e?: MouseEvent<HTMLButtonElement>) => void;
+  onDelete?: (e?: MouseEvent<HTMLButtonElement>) => void;
   cancelText?: string;
   okText?: string;
   secondaryText?: string;
@@ -56,6 +58,7 @@ const Modal: React.FC<ModalProps> = ({
   tertiaryText,
   onTertiary,
   backdrop,
+  onDelete,
 }) => {
   const intl = useIntl();
   const modalRef = useRef<HTMLDivElement>(null);
@@ -150,8 +153,17 @@ const Modal: React.FC<ModalProps> = ({
               {children}
             </div>
           )}
-          {(onCancel || onOk || onSecondary || onTertiary) && (
+          {(onCancel || onOk || onSecondary || onTertiary || onDelete) && (
             <div className="relative mt-5 flex flex-row-reverse justify-center sm:mt-4 sm:justify-start">
+              {typeof onDelete === 'function' && (
+                <ConfirmButton
+                  onClick={onDelete}
+                  className="ml-3 w-4/12 sm:w-2/12"
+                  confirmText={intl.formatMessage(globalMessages.areyousure)}
+                >
+                  {okText}
+                </ConfirmButton>
+              )}
               {typeof onOk === 'function' && (
                 <Button
                   buttonType={okButtonType}

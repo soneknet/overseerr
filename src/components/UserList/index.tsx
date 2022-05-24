@@ -48,7 +48,7 @@ const messages = defineMessages({
   owner: 'Owner',
   admin: 'Admin',
   plexuser: 'Plex User',
-  deleteuser: 'Delete User',
+  deleteuser: 'Delete {username}',
   userdeleted: 'User deleted successfully!',
   userdeleteerror: 'Something went wrong while deleting the user.',
   deleteconfirm:
@@ -236,16 +236,17 @@ const UserList: React.FC = () => {
         show={deleteModal.isOpen}
       >
         <Modal
-          onOk={() => deleteUser()}
+          onDelete={() => deleteUser()}
           okText={
             isDeleting
               ? intl.formatMessage(globalMessages.deleting)
               : intl.formatMessage(globalMessages.delete)
           }
           okDisabled={isDeleting}
-          okButtonType="danger"
           onCancel={() => setDeleteModal({ isOpen: false })}
-          title={intl.formatMessage(messages.deleteuser)}
+          title={intl.formatMessage(messages.deleteuser, {
+            username: `${deleteModal.user?.username}`,
+          })}
           iconSvg={<TrashIcon />}
         >
           {intl.formatMessage(messages.deleteconfirm)}
